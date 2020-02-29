@@ -1,0 +1,84 @@
+﻿Main Player:
+* name: string
+* stats: Statistics
+* inventory: Inventory
+* shortcuts: Something to store the current weapon/item shortcuts
+* magic: array of Spell
+
+
+Statistics:
+* rank: PlayerRank
+* health: Health
+* nanos: Nanos
+
+
+PlayerRank:
+* level: int
+* xp: int
+
+
+Health:
+* currentHealth: int
+* totalHealth: int
+
+
+Nanos:
+* currentEnergy: int
+* totalEnergy: int
+
+
+Inventory:
+* weapons: array of Weapon
+* crafting: array of Craft
+* misc: array of Item
+
+
+Spell:
+* name: string
+* description: string
+* scale: int
+* type: string
+* duration: int
+* rank: SpellRank
+
+
+SpellRank:
+* level: int
+* upgradeCost: array
+
+
+
+
+
+
+Weapon:
+* name: string
+* description: string
+* damage: int
+* distance: double
+* clipSize: int
+* reloadSpeed: double
+* ammunition: Ammunition
+* rank: WeaponRank
+
+
+WeaponRank:
+* level: int
+* upgradeCost: array
+
+
+Item:
+* name: string
+* description: string
+* cost: int
+* craftCost: array of Item/Craft
+
+
+Craft: (type of Item?)
+
+
+Ammunition:
+* name: string
+* damage: int (base ammunition has damage = 0)
+* cost: int
+* craftCost: array of Item/Craft
