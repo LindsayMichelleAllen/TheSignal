@@ -7,4 +7,5 @@ public interface IWeapon {
 
     float dealDamage(ICharacter opponent);
     float takeDamage(float dmg);
+    bool breakWeapon();
 }
