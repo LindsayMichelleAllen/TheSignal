@@ -5,5 +5,4 @@ public interface IWeapon {
     Texture2D texture {get;set;}
 
     float dealDamage(ICharacter opponent);
-    bool breakWeapon();
 }
