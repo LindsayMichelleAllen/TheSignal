@@ -16,3 +16,4 @@
 		rotateSpeed (default: 1)
 		gravity (default: -9.8)
 		jumpHeight (default: 5)
+
