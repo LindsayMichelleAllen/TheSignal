@@ -4,50 +4,47 @@ using UnityEngine;
 
 public class MainCharacterController : MonoBehaviour
 {
-    #region Properties [public]
+    public CharacterController controller;
+    public float speed = 12f;
+    public float rotateSpeed = 1f;
+    public float gravity = -9.81f;
+    public float jumpHeight = 5f;
+    Vector3 velocity;
 
-    [SerializeField]
-    private CharacterController controller;
-    [SerializeField]
-    private Vector3 playerVelocity;
-    [SerializeField]
-    private float playerSpeed = 2.0f;
-    [SerializeField]
-    private float jumpHeight = 1.0f;
-    [SerializeField]
-    private float gravity = -1.81f;
-
-    #endregion
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        controller = GetComponent<CharacterController>();
+    void Start() {
+        if(controller == null){
+            controller = GetComponent<CharacterController>();
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (controller.isGrounded && playerVelocity.y < 0)
+        if (controller.isGrounded && velocity.y < 0)
         {
-            playerVelocity.y = 0f;
+            velocity.y = -2f;
         }
 
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        controller.Move(move * Time.deltaTime * playerSpeed);
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
 
-        if (move != Vector3.zero)
+        /* Move Object */
+        Vector3 move = transform.right * x + transform.forward * z;
+        controller.Move(move * speed * Time.deltaTime);
+        /* *********** */
+
+        /* Rotate Object */
+        transform.Rotate(0, Input.GetAxis("Horizontal") * rotateSpeed, 0);
+        var forward = transform.TransformDirection(Vector3.forward);
+        float curSpeed = speed * Input.GetAxis("Vertical");
+        controller.SimpleMove(forward * curSpeed);
+        /* ************* */
+
+        if (Input.GetButton("Jump") && controller.isGrounded)
         {
-            gameObject.transform.forward = move;
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
 
-        // Changes the height position of the player..
-        if (Input.GetButtonDown("Jump") && controller.isGrounded)
-        {
-            playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravity);
-        }
-
-        playerVelocity.y += gravity * Time.deltaTime;
-        controller.Move(playerVelocity * Time.deltaTime);
     }
 }
