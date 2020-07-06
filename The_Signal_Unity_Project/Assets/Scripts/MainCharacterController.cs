@@ -6,7 +6,7 @@ public class MainCharacterController : MonoBehaviour
 {
     public CharacterController controller;
     public float speed = 12f;
-    public float rotateSpeed = 1f;
+    public float rotateSpeed = 0.4f;
     public float gravity = -9.81f;
     public float jumpHeight = 5f;
     Vector3 velocity;
