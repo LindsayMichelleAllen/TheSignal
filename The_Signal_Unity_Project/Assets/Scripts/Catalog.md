@@ -1,7 +1,7 @@
 ## CameraFollowObject:  
 
 Attach to: camera  
-Parameters:  
+### Parameters:  
 	* Object to follow (required)  
 	* distance (default: 17)  
 	* height (default: 6)  
@@ -10,10 +10,10 @@ Parameters:
 ## MainCharacterController:
 
 Attach to: player  
-Parameters:
-	* Character Controller (default: player's)
-	* speed (default: 12)
-	* rotateSpeed (default: 1)
-	* gravity (default: -9.8)
-	* jumpHeight (default: 5)
+### Parameters:
+	* Character Controller (default: player's)  
+	* speed (default: 12)  
+	* rotateSpeed (default: 1)  
+	* gravity (default: -9.8)  
+	* jumpHeight (default: 5)  
 
