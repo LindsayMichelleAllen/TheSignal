@@ -1,4 +1,4 @@
-* CameraFollowObject:  
+### CameraFollowObject:  
 
 	- Attach to: camera  
 	- Parameters:  
@@ -7,7 +7,7 @@
 		* height (default: 6)  
 		* smooth (default: 1)  
 
-* MainCharacterController:
+### MainCharacterController:
 
 	- Attach to: player  
 	- Parameters:
